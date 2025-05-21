@@ -1,0 +1,8 @@
+2025-05-20 18:35:46,586 - INFO - [main.py:62] - === INICIANDO SISTEMA ===
+2025-05-20 18:35:46,587 - INFO - [main.py:69] - Diretório dados/pdfs verificado
+2025-05-20 18:35:46,587 - INFO - [main.py:69] - Diretório dados/textos verificado
+2025-05-20 18:35:46,588 - INFO - [main.py:69] - Diretório dados/imagens verificado
+2025-05-20 18:35:52,749 - INFO - [SentenceTransformer.py:211] - Use pytorch device_name: cpu
+2025-05-20 18:35:52,749 - INFO - [SentenceTransformer.py:219] - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 18:35:56,021 - INFO - [main.py:32] - PDFProcessor carregado com sucesso
+2025-05-20 18:35:56,025 - INFO - [main.py:39] - TextProcessor carregado com sucesso

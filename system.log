@@ -1,0 +1,21 @@
+2025-05-20 21:51:27,083 - INFO - [SentenceTransformer.py:219] - Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 21:51:31,203 - INFO - [indexador.py:19] - Embeddings carregados com sucesso
+2025-05-20 21:51:31,203 - INFO - [main.py:87] - === INICIANDO SISTEMA ===
+2025-05-20 21:51:31,204 - INFO - [main.py:61] - PDFProcessor carregado
+2025-05-20 21:51:31,204 - INFO - [main.py:61] - TextoProcessor carregado
+2025-05-20 21:51:31,204 - INFO - [main.py:61] - VídeoProcessor carregado
+2025-05-20 21:51:32,640 - INFO - [main.py:61] - ImagemProcessor carregado
+2025-05-20 21:51:33,227 - INFO - [pdf_processor.py:27] - Processado PDF: Capítulo do Livro.pdf
+2025-05-20 21:51:33,228 - INFO - [main.py:76] - PDF processou 20 documentos
+2025-05-20 21:51:33,228 - INFO - [text_processor.py:26] - Processado texto: Apresentação.txt
+2025-05-20 21:51:33,228 - INFO - [main.py:76] - Texto processou 1 documentos
+2025-05-20 21:51:33,382 - INFO - [video_processor.py:41] - Vídeo processado: Dica do professor.mp4
+2025-05-20 21:51:33,383 - INFO - [main.py:76] - Vídeo processou 1 documentos
+2025-05-20 21:51:35,119 - INFO - [image_processor.py:51] - Imagem processada: Infografico-1.jpg
+2025-05-20 21:51:35,119 - INFO - [main.py:76] - Imagem processou 1 documentos
+2025-05-20 21:51:35,946 - INFO - [loader.py:125] - Loading faiss with AVX2 support.
+2025-05-20 21:51:35,991 - INFO - [loader.py:127] - Successfully loaded faiss with AVX2 support.
+2025-05-20 21:51:35,996 - INFO - [__init__.py:205] - Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-20 21:51:35,997 - INFO - [indexador.py:31] - Índice criado com 23 documentos
+2025-05-20 21:51:35,997 - INFO - [main.py:113] - === SISTEMA PRONTO - 23 documentos ===
+2025-05-20 21:51:36,017 - INFO - [chatbot.py:17] - Chatbot inicializado com sucesso

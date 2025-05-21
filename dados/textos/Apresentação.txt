@@ -1,0 +1,10 @@
+Sistemas desenvolvidos para a plataforma web utilizam a linguagem HTML para a exibição de conteúdo, tanto para páginas estáticas como dinâmicas. Com HTML5 é possível criar páginas web com diversos recursos para a apresentação de dados por meio de novas marcações que permitem o uso de semântica e acessibilidade, facilitando a pesquisa por motores de busca automática e dispositivos próprios para deficientes visuais e auditivos.
+
+Nesta Unidade de Aprendizagem, você vai estudar a estrutura de páginas web, a formatação de texto em documentos hipertexto e a apresentação de links, listas e tabelas em HTML5.
+
+Bons estudos.
+
+Ao final desta Unidade de Aprendizagem, você deve apresentar os seguintes aprendizados:
+Definir a estrutura de uma página web com HTML5.
+Aplicar formatação de texto em uma página web com HTML5.
+Desenvolver listas e tabelas em uma página web com HTML5.

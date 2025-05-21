@@ -1,0 +1,493 @@
+2025-05-20 22:05:56,515 | CRITICAL | [main.py:54] Falha na inicialização: 'chunk_size'
+2025-05-20 22:05:56,515 | CRITICAL | [main.py:182] FALHA NO SISTEMA: 'chunk_size'
+Traceback (most recent call last):
+  File "C:\Users\azul_\TestDatum\main.py", line 176, in <module>
+    sistema = Sistema(config={
+  File "C:\Users\azul_\TestDatum\main.py", line 25, in __init__
+    self._inicializar_componentes()
+  File "C:\Users\azul_\TestDatum\main.py", line 31, in _inicializar_componentes
+    self.indexador = Indexador(config={
+  File "C:\Users\azul_\TestDatum\src\indexador.py", line 29, in __init__
+    self._inicializar_text_splitter()
+  File "C:\Users\azul_\TestDatum\src\indexador.py", line 36, in _inicializar_text_splitter
+    chunk_size=self.config["chunk_size"],
+KeyError: 'chunk_size'
+2025-05-20 22:07:45,056 | CRITICAL | [main.py:54] Falha na inicialização: 'chunk_size'
+2025-05-20 22:07:45,057 | CRITICAL | [main.py:184] FALHA NO SISTEMA: 'chunk_size'
+Traceback (most recent call last):
+  File "C:\Users\azul_\TestDatum\main.py", line 176, in <module>
+    sistema = Sistema(config={
+  File "C:\Users\azul_\TestDatum\main.py", line 25, in __init__
+    self._inicializar_componentes()
+  File "C:\Users\azul_\TestDatum\main.py", line 31, in _inicializar_componentes
+    self.indexador = Indexador(config={
+  File "C:\Users\azul_\TestDatum\src\indexador.py", line 29, in __init__
+    self._inicializar_text_splitter()
+  File "C:\Users\azul_\TestDatum\src\indexador.py", line 36, in _inicializar_text_splitter
+    chunk_size=self.config["chunk_size"],
+KeyError: 'chunk_size'
+2025-05-20 22:12:18,723 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 22:12:23,003 | INFO     | [indexador.py:49] Embeddings carregados com sucesso
+2025-05-20 22:12:40,000 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:12:40,000 | INFO     | [indexador.py:56] Processador de áudio inicializado
+2025-05-20 22:12:40,003 | CRITICAL | [main.py:55] Falha na inicialização: Could not import openai python package. Please install it with `pip install openai`.
+2025-05-20 22:12:40,003 | CRITICAL | [main.py:185] FALHA NO SISTEMA: Could not import openai python package. Please install it with `pip install openai`.
+Traceback (most recent call last):
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\langchain_community\llms\openai.py", line 303, in validate_environment
+    import openai
+ModuleNotFoundError: No module named 'openai'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\azul_\TestDatum\main.py", line 177, in <module>
+    sistema = Sistema(config={
+  File "C:\Users\azul_\TestDatum\main.py", line 26, in __init__
+    self._inicializar_componentes()
+  File "C:\Users\azul_\TestDatum\main.py", line 37, in _inicializar_componentes
+    self.llm = OpenAI(
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\langchain_core\_api\deprecation.py", line 224, in warn_if_direct_instance
+    return wrapped(self, *args, **kwargs)
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\langchain_core\load\serializable.py", line 130, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\pydantic\main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\pydantic\_internal\_decorators_v1.py", line 148, in _wrapper1
+    return validator(values)
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\langchain_core\utils\pydantic.py", line 226, in wrapper
+    return func(cls, values)
+  File "C:\Users\azul_\TestDatum\venv\lib\site-packages\langchain_community\llms\openai.py", line 305, in validate_environment
+    raise ImportError(
+ImportError: Could not import openai python package. Please install it with `pip install openai`.
+2025-05-20 22:13:38,158 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 22:13:42,299 | INFO     | [indexador.py:49] Embeddings carregados com sucesso
+2025-05-20 22:13:45,103 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:13:45,103 | INFO     | [indexador.py:56] Processador de áudio inicializado
+2025-05-20 22:13:49,861 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:13:49,862 | INFO     | [main.py:52] Componentes inicializados com sucesso
+2025-05-20 22:13:49,862 | CRITICAL | [main.py:185] FALHA NO SISTEMA: 'pasta_dados'
+Traceback (most recent call last):
+  File "C:\Users\azul_\TestDatum\main.py", line 183, in <module>
+    sistema.executar()
+  File "C:\Users\azul_\TestDatum\main.py", line 95, in executar
+    if not self._verificar_ambiente():
+  File "C:\Users\azul_\TestDatum\main.py", line 69, in _verificar_ambiente
+    os.makedirs(os.path.join(self.config["pasta_dados"], pasta), exist_ok=True)
+KeyError: 'pasta_dados'
+2025-05-20 22:29:08,133 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 22:29:12,341 | INFO     | [indexador.py:49] Embeddings carregados com sucesso
+2025-05-20 22:29:15,093 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:29:15,093 | INFO     | [indexador.py:56] Processador de áudio inicializado
+2025-05-20 22:29:19,545 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:29:19,546 | INFO     | [main.py:53] Componentes inicializados com sucesso
+2025-05-20 22:29:19,546 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-20 22:29:19,546 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-20 22:29:20,221 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-20 22:29:20,222 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-20 22:29:20,223 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-20 22:29:20,224 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-20 22:29:20,412 | INFO     | [video_processor.py:41] Vídeo processado: Dica do professor.mp4
+2025-05-20 22:29:20,412 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-20 22:29:22,294 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-20 22:29:22,295 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-20 22:29:22,295 | ERROR    | [main.py:98] Erro no audio_processor: 'AudioProcessor' object has no attribute 'processar'
+2025-05-20 22:29:22,921 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-20 22:29:22,936 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-20 22:29:22,943 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-20 22:29:22,945 | INFO     | [indexador.py:190] Índice atualizado. Total documentos: 23
+2025-05-20 22:29:22,946 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-20 22:30:10,743 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 22:30:14,792 | INFO     | [indexador.py:49] Embeddings carregados com sucesso
+2025-05-20 22:30:17,527 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:30:17,527 | INFO     | [indexador.py:56] Processador de áudio inicializado
+2025-05-20 22:30:21,938 | INFO     | [audio_processor.py:17] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:30:21,938 | INFO     | [main.py:53] Componentes inicializados com sucesso
+2025-05-20 22:30:21,938 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-20 22:30:21,939 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-20 22:30:22,570 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-20 22:30:22,571 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-20 22:30:22,571 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-20 22:30:22,571 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-20 22:30:22,741 | INFO     | [video_processor.py:41] Vídeo processado: Dica do professor.mp4
+2025-05-20 22:30:22,741 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-20 22:30:24,459 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-20 22:30:24,459 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-20 22:30:24,459 | ERROR    | [main.py:98] Erro no audio_processor: 'AudioProcessor' object has no attribute 'processar'
+2025-05-20 22:30:25,024 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-20 22:30:25,038 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-20 22:30:25,044 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-20 22:30:25,045 | INFO     | [indexador.py:190] Índice atualizado. Total documentos: 23
+2025-05-20 22:30:25,045 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-20 22:30:49,918 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:30:49,919 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.409097 seconds
+2025-05-20 22:30:51,186 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:30:51,187 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.816649 seconds
+2025-05-20 22:30:53,123 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:30:53,124 | ERROR    | [main.py:155] Erro na interação: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-05-20 22:31:21,616 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:31:21,616 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.492730 seconds
+2025-05-20 22:31:23,157 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:31:23,157 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.918120 seconds
+2025-05-20 22:31:24,347 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:31:24,348 | ERROR    | [main.py:155] Erro na interação: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-05-20 22:33:27,436 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:33:27,437 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.403765 seconds
+2025-05-20 22:33:28,386 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:33:28,386 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.797215 seconds
+2025-05-20 22:33:29,830 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:33:29,831 | ERROR    | [main.py:155] Erro na interação: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-05-20 22:38:09,081 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 22:38:13,458 | INFO     | [indexador.py:49] Embeddings carregados com sucesso
+2025-05-20 22:38:16,166 | INFO     | [audio_processor.py:18] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:38:16,166 | INFO     | [indexador.py:56] Processador de áudio inicializado
+2025-05-20 22:38:20,555 | INFO     | [audio_processor.py:18] Modelo Whisper small carregado para processamento de áudio
+2025-05-20 22:38:20,555 | INFO     | [main.py:53] Componentes inicializados com sucesso
+2025-05-20 22:38:20,555 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-20 22:38:20,556 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-20 22:38:21,160 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-20 22:38:21,161 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-20 22:38:21,161 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-20 22:38:21,161 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-20 22:38:21,318 | INFO     | [video_processor.py:41] Vídeo processado: Dica do professor.mp4
+2025-05-20 22:38:21,318 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-20 22:38:23,020 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-20 22:38:23,020 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-20 22:38:23,020 | ERROR    | [main.py:98] Erro no audio_processor: processar() missing 1 required positional argument: 'caminho_pasta'
+2025-05-20 22:38:23,581 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-20 22:38:23,594 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-20 22:38:23,599 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-20 22:38:23,601 | INFO     | [indexador.py:190] Índice atualizado. Total documentos: 23
+2025-05-20 22:38:23,601 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-20 22:38:35,388 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:38:35,389 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.488333 seconds
+2025-05-20 22:38:36,525 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:38:36,525 | INFO     | [_base_client.py:1058] Retrying request to /completions in 0.812889 seconds
+2025-05-20 22:38:38,168 | INFO     | [_client.py:1025] HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 429 Too Many Requests"
+2025-05-20 22:38:38,169 | ERROR    | [main.py:155] Erro na interação: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
+2025-05-20 23:51:45,260 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-20 23:51:49,725 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-20 23:51:52,549 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-20 23:51:52,549 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-20 23:51:52,549 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-20 23:51:56,656 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-20 23:51:56,656 | INFO     | [main.py:54] Componentes inicializados com sucesso
+2025-05-20 23:51:56,656 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-20 23:51:56,656 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-20 23:51:57,263 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-20 23:51:57,263 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-20 23:51:57,264 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-20 23:51:57,264 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-20 23:51:57,443 | INFO     | [video_processor.py:41] Vídeo processado: Dica do professor.mp4
+2025-05-20 23:51:57,444 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-20 23:51:59,117 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-20 23:51:59,117 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-20 23:51:59,117 | ERROR    | [main.py:98] Erro no audio_processor: processar() missing 1 required positional argument: 'caminho_pasta'
+2025-05-20 23:51:59,673 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-20 23:51:59,687 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-20 23:51:59,694 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-20 23:51:59,695 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-20 23:51:59,695 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-20 23:51:59,695 | CRITICAL | [main.py:133] Falha no tutor: __init__() got an unexpected keyword argument 'llm'
+2025-05-21 09:44:12,555 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 09:44:16,783 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 09:44:19,724 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 09:44:19,724 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 09:44:19,724 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 09:44:24,171 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 09:44:24,171 | INFO     | [main.py:54] Componentes inicializados com sucesso
+2025-05-21 09:44:24,172 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-21 09:44:24,172 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-21 09:44:24,810 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 09:44:24,810 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-21 09:44:24,818 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 09:44:24,819 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-21 09:44:25,029 | INFO     | [video_processor.py:41] Vídeo processado: Dica do professor.mp4
+2025-05-21 09:44:25,029 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-21 09:44:26,773 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 09:44:26,773 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-21 09:44:26,773 | ERROR    | [main.py:98] Erro no audio_processor: processar() missing 1 required positional argument: 'caminho_pasta'
+2025-05-21 09:44:27,702 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 09:44:27,749 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 09:44:27,757 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 09:44:27,758 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 09:44:27,758 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-21 09:44:27,759 | CRITICAL | [main.py:133] Falha no tutor: __init__() got an unexpected keyword argument 'llm'
+2025-05-21 09:58:19,278 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 09:58:23,430 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 09:58:26,180 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 09:58:26,181 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 09:58:26,181 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 09:58:30,123 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 09:58:30,123 | INFO     | [main.py:54] Componentes inicializados com sucesso
+2025-05-21 09:58:30,124 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-21 09:58:30,124 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-21 09:58:30,725 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 09:58:30,726 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-21 09:58:30,726 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 09:58:30,726 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-21 09:58:30,876 | INFO     | [video_processor.py:41] Vídeo processado: Dica do professor.mp4
+2025-05-21 09:58:30,877 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-21 09:58:32,511 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 09:58:32,511 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-21 09:58:32,512 | ERROR    | [main.py:98] Erro no audio_processor: 'AudioProcessor' object has no attribute 'logger'
+2025-05-21 09:58:33,070 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 09:58:33,084 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 09:58:33,090 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 09:58:33,091 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 09:58:33,091 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-21 11:16:55,967 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 11:16:59,893 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 11:17:02,517 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 11:17:02,517 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 11:17:02,517 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 11:17:06,568 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 11:17:06,568 | INFO     | [main.py:54] Componentes inicializados com sucesso
+2025-05-21 11:17:06,569 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-21 11:17:06,569 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-21 11:17:07,170 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 11:17:07,170 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-21 11:17:07,170 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 11:17:07,171 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-21 11:17:33,952 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 11:17:33,959 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-21 11:17:35,615 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 11:17:35,616 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-21 11:17:35,616 | ERROR    | [main.py:98] Erro no audio_processor: 'AudioProcessor' object has no attribute 'logger'
+2025-05-21 11:17:36,172 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 11:17:36,185 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 11:17:36,191 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 11:17:36,192 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 11:17:36,192 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-21 11:17:36,194 | CRITICAL | [main.py:131] Falha no tutor: 1 validation error for StuffDocumentsChain
+  Value error, document_variable_name context was not found in llm_chain input_variables: ['chat_history', 'formato', 'question'] [type=value_error, input_value={'llm_chain': LLMChain(ve...None, 'callbacks': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+2025-05-21 11:18:24,813 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 11:18:28,728 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 11:18:31,599 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 11:18:31,599 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 11:18:31,600 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 11:18:35,572 | INFO     | [audio_processor.py:15] Modelo Whisper small carregado
+2025-05-21 11:18:35,572 | INFO     | [main.py:54] Componentes inicializados com sucesso
+2025-05-21 11:18:35,573 | INFO     | [main.py:76] Pasta verificada/criada: dados\pdfs
+2025-05-21 11:18:35,573 | INFO     | [main.py:108] === INICIANDO SISTEMA ===
+2025-05-21 11:18:36,184 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 11:18:36,185 | INFO     | [main.py:96] Processado 20 documentos pdf
+2025-05-21 11:18:36,185 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 11:18:36,185 | INFO     | [main.py:96] Processado 1 documentos texto
+2025-05-21 11:18:56,324 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 11:18:56,331 | INFO     | [main.py:96] Processado 1 documentos video
+2025-05-21 11:18:57,928 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 11:18:57,928 | INFO     | [main.py:96] Processado 1 documentos imagem
+2025-05-21 11:18:57,929 | ERROR    | [main.py:98] Erro no audio_processor: 'AudioProcessor' object has no attribute 'logger'
+2025-05-21 11:18:58,487 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 11:18:58,500 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 11:18:58,506 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 11:18:58,507 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 11:18:58,507 | INFO     | [main.py:120] Índice criado com 23 documentos
+2025-05-21 11:18:58,509 | CRITICAL | [main.py:131] Falha no tutor: 1 validation error for StuffDocumentsChain
+  Value error, document_variable_name context was not found in llm_chain input_variables: ['chat_history', 'formato', 'question'] [type=value_error, input_value={'llm_chain': LLMChain(ve...None, 'callbacks': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+2025-05-21 12:34:33,224 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 12:34:37,328 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 12:34:40,058 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 12:34:40,058 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 12:34:40,058 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 12:34:44,047 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 12:34:44,047 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 12:34:44,048 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 12:34:44,048 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 12:34:44,714 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 12:34:44,714 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 12:34:44,721 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 12:34:44,721 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 12:35:04,460 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 12:35:04,467 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 12:35:06,077 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 12:35:06,077 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 12:35:06,078 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 12:35:06,836 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 12:35:06,879 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 12:35:06,884 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 12:35:06,885 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 12:35:06,885 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 12:35:16,767 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 12:35:25,567 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 12:35:47,365 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 12:36:00,249 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 12:36:06,058 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 12:36:42,862 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 15:34:08,162 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 15:34:12,454 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 15:34:15,329 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:34:15,329 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 15:34:15,329 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 15:34:19,727 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:34:19,727 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 15:34:19,727 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 15:34:19,728 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 15:34:20,357 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 15:34:20,358 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 15:34:20,365 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 15:34:20,365 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 15:34:40,083 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 15:34:40,091 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 15:34:41,897 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 15:34:41,897 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 15:34:41,897 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 15:34:42,812 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 15:34:42,863 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 15:34:42,870 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 15:34:42,871 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 15:34:42,871 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 15:36:57,094 | ERROR    | [tutor_adaptativo.py:51] Erro ao responder: Missing some input keys: {'formato'}
+2025-05-21 15:43:38,132 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 15:43:42,059 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 15:43:44,667 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:43:44,667 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 15:43:44,667 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 15:43:48,670 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:43:48,670 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 15:43:48,671 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 15:43:48,671 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 15:43:49,263 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 15:43:49,264 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 15:43:49,264 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 15:43:49,264 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 15:44:08,864 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 15:44:08,870 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 15:44:10,477 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 15:44:10,477 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 15:44:10,478 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 15:44:11,030 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 15:44:11,046 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 15:44:11,054 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 15:44:11,057 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 15:44:11,057 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 15:44:11,060 | CRITICAL | [main.py:135] Falha no tutor: name 'ConversationalRetrievalChain' is not defined
+2025-05-21 15:45:08,008 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 15:45:12,267 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 15:45:14,974 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:45:14,975 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 15:45:14,975 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 15:45:18,965 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:45:18,966 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 15:45:18,966 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 15:45:18,966 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 15:45:19,569 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 15:45:19,569 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 15:45:19,570 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 15:45:19,570 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 15:45:38,849 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 15:45:38,855 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 15:45:40,424 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 15:45:40,425 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 15:45:40,425 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 15:45:40,968 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 15:45:40,983 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 15:45:40,989 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 15:45:40,990 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 15:45:40,990 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 15:45:40,993 | CRITICAL | [main.py:135] Falha no tutor: 1 validation error for StuffDocumentsChain
+  Value error, document_variable_name context was not found in llm_chain input_variables: ['chat_history', 'formato', 'question'] [type=value_error, input_value={'llm_chain': LLMChain(ve...None, 'callbacks': None}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.11/v/value_error
+2025-05-21 15:53:25,956 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 15:53:29,873 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 15:53:32,498 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:53:32,498 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 15:53:32,498 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 15:53:36,407 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:53:36,408 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 15:53:36,408 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 15:53:36,408 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 15:53:37,003 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 15:53:37,004 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 15:53:37,004 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 15:53:37,004 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 15:53:57,083 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 15:53:57,090 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 15:53:58,713 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 15:53:58,713 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 15:53:58,713 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 15:53:59,251 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 15:53:59,264 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 15:53:59,269 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 15:53:59,270 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 15:53:59,270 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 15:53:59,271 | CRITICAL | [main.py:135] Falha no tutor: __init__() got an unexpected keyword argument 'formato_padrao'
+2025-05-21 15:56:31,952 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 15:56:35,849 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 15:56:38,595 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:56:38,595 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 15:56:38,595 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 15:56:42,519 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:56:42,519 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 15:56:42,520 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 15:56:42,520 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 15:56:43,122 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 15:56:43,122 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 15:56:43,123 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 15:56:43,123 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 15:57:02,972 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 15:57:02,979 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 15:57:04,591 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 15:57:04,591 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 15:57:04,592 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 15:57:05,152 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 15:57:05,169 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 15:57:05,181 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 15:57:05,183 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 15:57:05,184 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 15:57:05,184 | CRITICAL | [main.py:134] Falha no tutor: 'llama2'
+2025-05-21 15:57:33,770 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 15:57:37,683 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 15:57:40,328 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:57:40,328 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 15:57:40,329 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 15:57:44,194 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 15:57:44,194 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 15:57:44,194 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 15:57:44,195 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 15:57:44,787 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 15:57:44,787 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 15:57:44,788 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 15:57:44,788 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 15:58:04,321 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 15:58:04,327 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 15:58:05,974 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 15:58:05,975 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 15:58:05,975 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 15:58:06,513 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 15:58:06,525 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 15:58:06,530 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 15:58:06,531 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 15:58:06,531 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 15:59:52,190 | ERROR    | [tutor_adaptativo.py:57] Erro ao responder: One input key expected got ['question', 'formato']
+2025-05-21 16:04:35,563 | INFO     | [SentenceTransformer.py:219] Load pretrained SentenceTransformer: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+2025-05-21 16:04:39,497 | INFO     | [indexador.py:65] Embeddings carregados (device: cpu)
+2025-05-21 16:04:42,158 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 16:04:42,158 | INFO     | [indexador.py:73] Processador de áudio inicializado (modelo: small)
+2025-05-21 16:04:42,158 | INFO     | [indexador.py:40] Componentes do indexador inicializados com sucesso
+2025-05-21 16:04:46,106 | INFO     | [audio_processor.py:14] Modelo Whisper small carregado
+2025-05-21 16:04:46,106 | INFO     | [main.py:55] Componentes inicializados com sucesso
+2025-05-21 16:04:46,107 | INFO     | [main.py:77] Pasta verificada/criada: dados\pdfs
+2025-05-21 16:04:46,107 | INFO     | [main.py:109] === INICIANDO SISTEMA ===
+2025-05-21 16:04:46,721 | INFO     | [pdf_processor.py:27] Processado PDF: Capítulo do Livro.pdf
+2025-05-21 16:04:46,721 | INFO     | [main.py:97] Processado 20 documentos pdf
+2025-05-21 16:04:46,722 | INFO     | [text_processor.py:26] Processado texto: Apresentação.txt
+2025-05-21 16:04:46,722 | INFO     | [main.py:97] Processado 1 documentos texto
+2025-05-21 16:05:06,921 | INFO     | [video_processor.py:58] Vídeo processado: Dica do professor.mp4
+2025-05-21 16:05:06,928 | INFO     | [main.py:97] Processado 1 documentos video
+2025-05-21 16:05:08,524 | INFO     | [image_processor.py:51] Imagem processada: Infografico-1.jpg
+2025-05-21 16:05:08,525 | INFO     | [main.py:97] Processado 1 documentos imagem
+2025-05-21 16:05:08,525 | WARNING  | [audio_processor.py:23] Pasta não encontrada: dados\audios
+2025-05-21 16:05:09,083 | INFO     | [loader.py:125] Loading faiss with AVX2 support.
+2025-05-21 16:05:09,096 | INFO     | [loader.py:127] Successfully loaded faiss with AVX2 support.
+2025-05-21 16:05:09,101 | INFO     | [__init__.py:205] Failed to load GPU Faiss: name 'GpuIndexIVFFlat' is not defined. Will not load constructor refs for GPU indexes. This is only an error if you're trying to use GPU Faiss.
+2025-05-21 16:05:09,103 | INFO     | [indexador.py:206] Novo índice criado com 23 documentos
+2025-05-21 16:05:09,103 | INFO     | [main.py:121] Índice criado com 23 documentos
+2025-05-21 16:05:33,037 | ERROR    | [tutor_adaptativo.py:63] Erro ao responder: One input key expected got ['formato', 'question']
+2025-05-21 16:05:40,677 | ERROR    | [tutor_adaptativo.py:63] Erro ao responder: One input key expected got ['formato', 'question']
+2025-05-21 16:05:48,410 | ERROR    | [tutor_adaptativo.py:63] Erro ao responder: One input key expected got ['formato', 'question']
+2025-05-21 16:06:01,393 | ERROR    | [tutor_adaptativo.py:63] Erro ao responder: One input key expected got ['formato', 'question']
+2025-05-21 16:06:26,644 | ERROR    | [tutor_adaptativo.py:63] Erro ao responder: One input key expected got ['formato', 'question']
+2025-05-21 16:06:58,394 | ERROR    | [tutor_adaptativo.py:63] Erro ao responder: One input key expected got ['formato', 'question']
