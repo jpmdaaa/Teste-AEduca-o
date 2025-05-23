@@ -51,7 +51,8 @@ class VideoProcessor:
                                 "fonte": arquivo,
                                 "duracao": clip.duration,
                                 "resolucao": f"{clip.w}x{clip.h}",
-                                "tem_legendas": bool(legenda)
+                                "tem_legendas": bool(legenda),
+                               
                             }
                         )
                         documentos.append(documento)

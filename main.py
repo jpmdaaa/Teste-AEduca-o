@@ -12,17 +12,19 @@ from src.video_processor import VideoProcessor
 from src.image_processor import ImageProcessor
 from src.tutor_adaptativo import TutorAdaptativo
 from langchain_community.llms import Ollama
-
+from langchain_ollama import ChatOllama 
 
 class Sistema:
     def __init__(self, config: Dict = None):
+        self.tutor = None
         self.logger = logging.getLogger(__name__)
         self.config = config or {
             "ollama_model": "llama2",
             "pasta_dados": "dados",
             "whisper_model": "base",
             "chunk_size": 1000,
-            "chunk_overlap": 200
+            "chunk_overlap": 200,
+            "modo_quieto": False 
         }
         self._inicializar_componentes()
 
@@ -36,11 +38,19 @@ class Sistema:
                 "chunk_overlap": self.config["chunk_overlap"]
             })
             
+
+            self.tutor = TutorAdaptativo( 
+                indexador=self.indexador,
+                model=self.config["ollama_model"]
+            )
+            self.logger.info("Tutor inicializado com sucesso")
+
             # Configuração do LLM local com Ollama
             self.llm = Ollama(
-                base_url="http://localhost:15852",
+                base_url="http://localhost:11434",
                 model=self.config["ollama_model"],
-                temperature=0.7
+                temperature=0.7,
+                timeout=600    
             )
             
             # Processadores
@@ -57,6 +67,7 @@ class Sistema:
         except Exception as e:
             self.logger.critical(f"Falha na inicialização: {str(e)}")
             raise
+        
     def _verificar_ambiente(self):
         """Verifica requisitos e estrutura de pastas"""
         try:
@@ -76,7 +87,7 @@ class Sistema:
                 os.makedirs(caminho, exist_ok=True)
                 self.logger.info(f"Pasta verificada/criada: {caminho}")
             
-                return True
+            return True
         
         except ImportError as e:
             self.logger.error(f"Dependência faltando: {str(e)}")
@@ -125,12 +136,11 @@ class Sistema:
             
         # Inicialização do Tutor
         try:
-            self.tutor = TutorAdaptativo( indexador=self.indexador,
-            model=self.config["ollama_model"]
-      
-                )
-           
+            self.tutor = TutorAdaptativo(
+            indexador=self.indexador,
+            model=self.config["ollama_model"])
             self._iniciar_interacao()
+
         except Exception as e:
             self.logger.critical(f"Falha no tutor: {str(e)}")
 
@@ -145,15 +155,14 @@ class Sistema:
         return max(formatos.items(), key=lambda x: x[1])[0]
     
     def _iniciar_interacao(self):
+        
+        if self.config.get("modo_quieto"):
+            return  # Não inicia o console no modo web
+        
         print("\n" + "="*50)
         print("Sistema de Aprendizado Adaptativo (+A Educação)")
         print("="*50)
-        print("\nComandos especiais:")
-        print("formato texto - Altera para respostas textuais")
-        print("formato vídeo - Altera para respostas com sugestões de vídeo")
-        print("formato áudio - Altera para respostas com sugestões de áudio")
-        print("sair - Encerra o sistema\n")
-
+    
         formato_atual = "texto"
     
         while True:
@@ -163,30 +172,29 @@ class Sistema:
                 if entrada.lower() in ('sair', 'exit', 'quit'):
                     break
                 
-                # Verifica comandos de formato
+                # Comandos de formato
                 if entrada.lower().startswith('formato'):
                     partes = entrada.split()
                     if len(partes) > 1:
                         novo_formato = partes[1].lower()
                         if novo_formato in ['texto', 'vídeo', 'video', 'áudio', 'audio']:
-                            formato_atual = novo_formato[:4]  # Padroniza para 4 caracteres
+                            formato_atual = novo_formato
                             print(f"🔹 Formato alterado para: {formato_atual}")
+                            continue
                         else:
                             print("🔸 Formato inválido. Use: texto, vídeo ou áudio")
+                            continue
                     else:
-                        print("🔸 Especifique um formato (texto, vídeo ou áudio)")
-                    continue
-                
+                        print("🔸 Especifique um formato: texto, vídeo ou áudio")
+                        continue
+            
+                # Processa perguntas normais
                 resposta = self.tutor.responder(entrada, formato=formato_atual)
                 self._exibir_resposta(resposta, formato_atual)
             
-            except KeyboardInterrupt:
-                print("\nEncerrando...")
-                break
             except Exception as e:
                 self.logger.error(f"Erro na interação: {str(e)}")
                 print("🔴 Ocorreu um erro. Por favor, tente novamente.")
-
 
     def _exibir_resposta(self, resposta: str, formato: str):
         """Formata a resposta conforme o tipo de conteúdo"""
@@ -203,29 +211,40 @@ class Sistema:
             print(resposta)
         print("-"*50)
 
-def configurar_logging():
-    """Configura logging detalhado"""
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s | %(levelname)-8s | [%(filename)s:%(lineno)d] %(message)s',
-        handlers=[
-            logging.FileHandler('sistema.log', encoding='utf-8'),
-            logging.StreamHandler()
-        ]
-    )
+    def configurar_logging():
+        """Configura logging detalhado"""
+        logging.basicConfig(
+            level=logging.INFO,
+            format='%(asctime)s | %(levelname)-8s | [%(filename)s:%(lineno)d] %(message)s',
+            handlers=[
+                logging.FileHandler('sistema.log', encoding='utf-8'),
+                logging.StreamHandler()
+            ]
+        )
+
+    def is_ready(self):
+        """Verifica se todos os componentes estão carregados"""
+        return all([
+            hasattr(self, 'indexador'),
+            hasattr(self, 'llm'), 
+            hasattr(self, 'tutor'),
+            self.indexador is not None,
+            self.llm is not None,
+            self.tutor is not None
+    ])
 
 
-if __name__ == "__main__":
-    try:
-        configurar_logging()
-        sistema = Sistema(config={
-            "ollama_model": "llama2",
-            "whisper_model": "small",
-            "pasta_dados": "dados",
-            "chunk_size": 1000,
-            "chunk_overlap": 200
-        })
-        sistema.executar()
-    except Exception as e:
-        logging.critical(f"FALHA NO SISTEMA: {str(e)}", exc_info=True)
-        sys.exit(1)
+    if __name__ == "__main__":
+        try:
+            configurar_logging()
+            sistema = Sistema(config={
+                "ollama_model": "llama2",
+                "whisper_model": "small",
+                "pasta_dados": "dados",
+                "chunk_size": 1000,
+                "chunk_overlap": 200
+            })
+            sistema.executar()
+        except Exception as e:
+            logging.critical(f"FALHA NO SISTEMA: {str(e)}", exc_info=True)
+            sys.exit(1)

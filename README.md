@@ -17,7 +17,6 @@ git clone https://github.com/seu-usuario/challenge-artificial-intelligence.git
 cd challenge-artificial-intelligence
 ```
 
-
 2. Crie e ative o ambiente virtual:
 
 **bash**
@@ -44,7 +43,6 @@ Download
 pip install -r requirements.txt
 ```
 
-
 4. Baixe os modelos necessários:
 
 **bash**
@@ -56,7 +54,6 @@ Download
 ```
 ollama pull llama2
 ```
-
 
 ## Configuração
 
@@ -72,7 +69,6 @@ Download
 mkdir -p dados/{pdfs,textos,videos,audios,imagens}
 ```
 
-
 2. Adicione seus arquivos de mídia nas pastas correspondentes
 
 ## 🏃 Execução
@@ -87,11 +83,9 @@ Download
 
 ```
 venv/scripts/activate
-python main.py
+python interface.py
+
 ```
-
-
-
 
 ## 🎯 Comandos do Sistema
 

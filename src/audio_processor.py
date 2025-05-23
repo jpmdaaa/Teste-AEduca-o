@@ -21,7 +21,9 @@ class AudioProcessor:
         
         if not os.path.exists(caminho_pasta):
             self.logger.warning(f"Pasta não encontrada: {caminho_pasta}")
-            return documentos
+            os.makedirs(caminho_pasta, exist_ok=True)
+            return []
+            
 
         for arquivo in os.listdir(caminho_pasta):
             if arquivo.endswith(('.mp3', '.wav')):
